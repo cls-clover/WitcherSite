@@ -1,0 +1,172 @@
+
+/* JOIN CHECKER */
+
+.join_block {
+    padding: 100px 0;
+}
+
+.inner_join_block {
+    background-image: url("../img/kaer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid var(--orange);
+    height: 300px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.form_join {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form_join input {
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    background-color: transparent;
+    border: 2px solid rgba(233, 209, 156, 0.5);
+    box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.4);
+}
+
+.form_join button {
+    width: 100%;
+    margin: 20px 0;
+}
+
+
+/*--------CHARACTERS---------*/
+
+.characters-list {
+    padding: 50px 0 100px;
+    display: flex;
+    /*justify-content: space-between;*/
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.character-card {
+    border: 2px solid var(--orange);
+    padding: 10px;
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.35s ease;
+}
+.character-card:hover {
+    box-shadow: 0 4px 38px 0 rgba(236, 200, 120, 0.35);
+}
+
+.character-card h3 {
+    font-size: 24px;
+}
+
+.character-photo {
+    width: 100%;
+    height: 250px;
+    border: 2px solid var(--orange);
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+.character-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/*------CARD SWITCHER------*/
+
+.card_switcher {
+    padding: 50px 0;
+    background-image: url("../img/witcher_in_ass.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.2);
+}
+
+.card {
+    width: 500px;
+    height: 150px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    backdrop-filter: blur(2px);
+    background-color: transparent;
+    border: 2px solid var(--orange);
+    box-shadow: 0 0 20px 4px rgba(233, 209, 156, 0.2);
+}
+
+.card p {
+    color: var(--orange);
+    font-size: 20px;
+}
+
+.card span {
+    color: white;
+    font-size: 30px;
+}
+
+.inner_card_switcher {
+    margin-top: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+
+
+/*-------CONVERTER--------*/
+.converter {
+    padding: 100px 0;
+}
+
+.inner_converter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.inner_converter > div {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inner_converter > div input {
+    margin: 4px;
+    text-align: center;
+    border-radius: 12px;
+    backdrop-filter: blur(8px);
+    background-color: transparent;
+    border: 2px solid rgba(233, 209, 156, 0.5);
+    box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.2);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+

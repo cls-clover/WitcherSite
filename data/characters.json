@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Geralt of Rivia",
+    "alias": "White Wolf",
+    "gender": "male",
+    "photo": "https://www.adrenaline.com.br/wp-content/uploads/2022/11/Ator_Geralt_nao_foi_chamado_remake_de_The_Witcher.jpg"
+  },
+  {
+    "name": "Cirilla Fiona Elen Riannon",
+    "alias": "Zireael",
+    "gender": "female",
+    "photo": "https://i.pinimg.com/736x/81/0e/6b/810e6b73a5ca07cc37213584b0660cfb.jpg"
+  },
+  {
+    "name": "Yennefer",
+    "alias": "Yen",
+    "gender": "female",
+    "photo": "https://images.cgames.de/images/gsgp/4/the-witcher-3_6298543.jpg"
+  },
+  {
+    "name": "Triss Merigold",
+    "alias": "Merigolt the Fearless",
+    "gender": "female",
+    "photo": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2020/12/Triss-Merigold-Witcher-3.jpg"
+  },
+  {
+    "name": "Emiel Regis Rohellec Terzieff-Godefroy",
+    "alias": "Regis",
+    "gender": "male",
+    "photo": "https://static1.thegamerimages.com/wordpress/wp-content/uploads/2020/02/Regis-3-1.jpg"
+  },
+  {
+    "name": "Vesemir",
+    "alias": "Vesemir",
+    "gender": "male",
+    "photo": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2020/02/vesemir-the-witcher-3.jpg"
+  },
+  {
+    "name": "Dandelion",
+    "alias": "Julian Alfred Pankratz viscount de Lettenhove",
+    "gender": "male",
+    "photo": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/12/dandelion-the-witcher-3.jpg"
+  },
+  {
+    "name": "Dettlaff van der Eretein",
+    "alias": "Dettlaff",
+    "gender": "male",
+    "photo": "https://staticdelivery.nexusmods.com/images/952/53329566-1660751645.jpg"
+  }
+]

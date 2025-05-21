@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Caudex:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 0 25px;
+}
+
+body {
+    font-family: "Caudex", serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #090909;
+    color: whitesmoke;
+}
+button {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    color: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    list-style: none;
+}
+
+li, ul, ol {
+    list-style: none;
+}
+
+.btn {
+    background-color: #e9d19c;
+    color: #090909;
+    padding: 8px;
+    width: 120px;
+    border-radius: 20px;
+    transition: .35s;
+}
+.btn-modal {
+    letter-spacing: 1px;
+}
+.btn:hover {
+    background-color: #ecc878;
+}
+
+h1 {
+    /*text-align: center;*/
+    font-size: 70px;
+    color: white;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h2 {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h3 {
+    text-align: center;
+    font-size: 30px;
+    color: white;
+    margin: 0 auto;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 24px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+strong {
+    color: #d9e1e1;
+}
+
+label {
+    font-size: 24px;
+    color: var(--orange);
+}
+
+input {
+    width: 350px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 5px;
+    color: var(--orange);
+    background: black;
+    border: 2px solid var(--orange);
+}
+
+.checker {
+    color: white;
+    font-size: 30px;
+}
+
+.btn-slide {
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: var(--orange);
+    color: black;
+    font-size: 20px;
+    text-transform: uppercase;
+    border-radius: 50%;
+    font-weight: 800;
+    z-index: 1;
+    transition: .35s;
+}
+
+.btn-slide:hover {
+    background: var(--orange);
+    cursor: pointer;
+    color: white;
+}
+
+:root {
+    /*--orange: darkslategrey;*/
+    --orange: #e9d19c;
+    --black: black;
+}

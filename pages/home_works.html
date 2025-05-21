@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home Works</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/core.css">
+    <link rel="stylesheet" href="../css/home_works.css">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div class="header">
+        <div class="container">
+            <div class="inner_header">
+                <a href="../index.html">
+                    <div class="logotype">
+                        <img src="../img/logo.webp" alt="logo">
+                    </div>
+                </a>
+                <ul class="menu">
+                    <li class="menu_link">
+                        <a href="../pages/home_works.html">Dimension</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="../pages/lessons.html">Activity</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="https://t.me/shabelnik_a" target="_blank">Inventory</a>
+                    </li>
+                    <li class="menu_link">
+                        <a href="https://t.me/shabelnik_a" target="_blank">Gwent</a>
+                    </li>
+                </ul>
+                <button class="btn" id="btn-get">JOIN</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="join_block">
+        <div class="container">
+            <h3>Join to Kaer Morhen club</h3>
+            <div class="inner_join_block">
+                <div class="form_join">
+                    <span class="checker" id="gmail_result"></span>
+                    <label for="gmail_input"></label>
+                    <input style="margin: 12px 0" type="text" id="gmail_input" placeholder="your gmail">
+                    <label for="phone_input"></label>
+                    <input type="text" id="phone_input" placeholder="+996 XXX XX-XX-XX">
+                    <button class="btn" id="check_button">JOIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="characters">
+        <div class="container">
+            <h3>MAYBE FRIENDS AFTER JOIN</h3>
+            <div class="characters-list">
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card_switcher">
+        <div class="container">
+            <h3>FILL YOURSELF WITH WISDOM</h3>
+            <div class="inner_card_switcher">
+                <button class="btn" id="btn-prev">&lt;</button>
+                <div class="card"></div>
+                <button class="btn" id="btn-next">&gt;</button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="converter">
+        <div class="container">
+            <h3>Exchange the currency</h3>
+            <div class="inner_converter">
+                <div class="som">
+                    <label for="som">Temerian orens</label>
+                    <input type="number" id="som">
+                </div>
+                <div class="usd">
+                    <label for="usd">Novigrad crowns</label>
+                    <input type="number" id="usd">
+                </div>
+                <div class="cny">
+                    <label for="cny">Nilfgaardian florins</label>
+                    <input type="number" id="cny">
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="footer">
+        <div class="container">
+            <a href="https://www.instagram.com/cls.clover/" target="_blank">
+                <div class="inner_footer">
+                    <h2>Made by cls-clover</h2>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="modal">
+    <div class="modal_dialog">
+        <div class="modal_content">
+            <form action="#">
+                <div class="modal_close">&times;</div>
+                <div class="modal_title">Мы свяжемся с вами как можно быстрее!</div>
+                <label>
+                    <input required placeholder="Ваше имя" name="name" type="text" class="modal_input">
+                </label>
+                <label>
+                    <input required placeholder="Ваш номер телефона" name="phone" class="modal_input">
+                </label>
+                <button class="btn btn_dark btn_min">Перезвонить мне</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="../js/home_works.js"></script>
+<script src="../js/modal.js"></script>
+</html>
