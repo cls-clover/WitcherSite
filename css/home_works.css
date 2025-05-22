@@ -2,11 +2,15 @@
 /* JOIN CHECKER */
 
 .join_block {
+    background-image: url("../img/kaer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.2);
     padding: 100px 0;
 }
 
 .inner_join_block {
-    background-image: url("../img/kaer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -27,19 +31,25 @@
 
 .form_join input {
     border-radius: 10px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(20px);
     background-color: transparent;
     border: 2px solid rgba(233, 209, 156, 0.5);
     box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.4);
 }
 
+
+
 .form_join button {
-    width: 100%;
+    width: 200px;
     margin: 20px 0;
 }
 
 
 /*--------CHARACTERS---------*/
+
+.characters {
+    margin: 50px 0;
+}
 
 .characters-list {
     padding: 50px 0 100px;
