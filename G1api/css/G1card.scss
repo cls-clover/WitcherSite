@@ -1,0 +1,323 @@
+//  This is the default layout of the html response
+//  ::option:: default :: shows which things can be toggled followed by the default state
+//  to not clash with any existing css every class has a G1- prefix
+//  
+//  <div class="G1-card">
+//      ::option=info:: enabled ::
+//      <div class="G1-info">
+//          <div class="G1-head">
+//              <div class="G1-name">
+//              	::option=href:: disabled ::
+//					<span>Name</span>
+//					::/option=href::
+//              </div>
+//              <div class="G1-category"><span>Category 1, Category 2</span></div>
+//          </div>
+//          <div class="G1-body">
+//              <div class="G1-ability"><span class="keyword">Deploy</span></div>
+//
+//              ::option=keywords:: enabled ::
+//              <div class="G1-keywords"></div>      
+//              ::/option html=keywords::
+//
+//              ::option html=flavor:: enabled ::
+//              <div class="G1-flavor"></div>       
+//              ::/option html=flavor::
+//          </div>
+//          ::option=version:: disabled ::
+//          <div class="G1-foot"><span>v8.4.0</span></div>       
+//          ::/option=version::
+//      </div>
+//      ::/option=info::
+//
+//      ::option=art:: enabled ::
+//      <div class="G1-art">
+//			<div class="G1-cardart">
+//          	<img></img>
+//          	<img></img>
+//          	<img></img>
+//          </div>
+//          ::option=artist:: disabled ::
+//			<div class="G1-artist">
+//          	<span>Name</span>
+//          </div>
+//          ::option=artist::
+//      </div>
+//      ::/option=art::
+//  </div>
+
+// media query
+@mixin mQ($arg) {
+	@media screen and (min-width: $arg) {
+		@content;
+	}
+}
+
+// .head colors
+$nt-header: #302113;
+$mo-header: #4e120a;
+$ng-header: #222222;
+$nr-header: #113a68;
+$st-header: #323a1e;
+$sk-header: #33155d;
+$sy-header: #75390d;
+
+// media query breakpoints
+$w-sm:   500px;
+$w-md:   700px;
+$w-lg:   900px;
+$w-xl:  1200px;
+$w-xxl: 1500px;
+
+// Every card is wrapped in G1-card, this is where you modify things to your liking
+// This is just an example using CSS grid. 
+// 
+// If you want to change anything this is where you do it.
+//
+// Art image size: (1:1.433)
+// low: w:150px;h:215px
+// med: w:249px;h:357px
+
+.G1-card { // mobile first
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-template-areas: "G1-info" "G1-art";
+	grid-gap: 20px;
+	
+	@include mQ($w-lg) {
+		grid-template-columns: 1fr 249px;
+		grid-template-areas: "G1-info G1-art";
+	}
+
+	> .G1-info {
+		grid-area: G1-info;
+
+		.G1-head {
+			padding: 1rem;
+			color:#fff;
+		}
+
+		.G1-name {
+			font-size:1.2rem;
+
+			> a {  // if linkname is enabled
+				color:#fff;
+			}
+		}
+
+		.G1-category {
+			font-size:0.8rem
+		}
+
+		.G1-body {
+			padding: 1rem;
+			color: #000;
+			background-color: #a18c6c;
+		}
+
+		.G1-ability {
+		}
+
+		span.keyword {  // Deploy, Order, Zeal, ...
+			color: #600101;
+			font-weight: 800;
+		}
+
+		.G1-keywords {
+
+			&:before { // separation line
+				content: " ";
+				display:block;
+				background-color: #89765a;
+				width: 40%;
+				height: 6px;
+				margin: 20px auto;
+				border-radius: 8px;
+			}
+		}
+
+		.G1-flavor {
+			text-align: center;
+			font-style: italic;
+			margin: 0 5%;
+
+			&:before { // separation line
+				content: " ";
+				display:block;
+				background-color: #8f7c5f;
+				width: 90%;
+				height: 4px;
+				margin: 20px auto;
+				border-radius: 8px;
+			}
+		}
+
+		.G1-foot {
+			text-align:right;
+
+			span:before { // version only returns the version to keep it customizable
+				content: "Gwent v";
+			}
+		}
+	}
+
+	> .G1-art {
+		grid-area: G1-art;
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-areas: "G1-cardart" "G1-artist";
+		grid-gap: 5px;
+		align-content: start;
+		justify-content: center;
+		justify-items: center;
+
+		.G1-cardart {
+			grid-area: G1-cardart;
+			position:relative;
+		
+			>img {
+				background-repeat: no-repeat;
+				background-size:contain;
+				position: absolute;
+				top: 0px;
+			}
+
+        	&[data-res="low"] {  // art container, size
+				width:150px;
+				height:215px;
+
+				>img { // round art edges
+					border-radius: 5px;
+				}
+
+				.ability-icon {
+					width: 150px !important;
+					height: 150px !important;
+				}
+			}
+        	&[data-res="medium"] {  // art container, size
+				width:249px;
+				height:357px;
+
+				>img {
+					border-radius: 8px;
+				}
+
+				.ability-icon {
+					width: 249px !important;
+					height: 249px !important;
+				}
+			}	
+		}
+
+		.G1-deckart {
+			grid-area: G1-cardart;
+			position:relative;
+			display:flex;
+			align-items: center;
+		
+			>img {
+				background-repeat: no-repeat;
+				background-size:contain;
+				position: absolute;
+				top: 0px;
+			}
+
+        	&[data-res="low"] {  // art container, size
+				width: calc(525px * 0.5);
+				height:calc(70px * 0.5);
+
+				>img {
+					border-radius: 5px;
+					width: calc(525px * 0.5);
+					height:calc(70px * 0.5);
+				}
+			}
+
+        	&[data-res="medium"] {  // art container, size
+				width:525px;
+				height:70px;
+
+				>img {
+					border-radius: 8px;
+					width:525px;
+					height:70px;
+				}
+			}
+
+			&.ability {
+
+				&[data-res="low"] {  // art container, size
+					width: calc(525px * 0.5) !important;
+					height:calc(116px * 0.5) !important;
+					>img {
+						border-radius: 5px;
+						width: calc(525px * 0.5) !important;
+						height:calc(116px * 0.5) !important;
+					}
+				}
+
+				&[data-res="medium"] {  // art container, size
+					width:525px !important;
+					height:116px !important;
+
+					>img {
+						border-radius: 8px;
+						width:525px !important;
+						height:116px !important;
+					}
+				}
+			}
+		}
+
+		.G1-artist {
+			grid-area: G1-artist;
+
+			span:before {
+				content: "Art: "
+			}
+		}
+
+	}
+
+	&.rounded { // custom individual styling
+		.G1-head { // round the hard edges around the top
+			border-radius: 1em 1em 0 0;
+		}
+		.G1-body { // round the hard edges around the bottom
+			border-radius: 0 0 1em 1em;
+		}
+	}
+	
+	&.tippy { // tooltip grid size
+		// this is using medium art size so I match the art width
+		// keep in mind that you have to set the max width in tippyCfg as well
+		font-size:.8rem !important;
+		grid-template-columns: 249px;
+		grid-template-areas: "G1-art" "G1-info";
+		grid-gap: 5px;
+		
+		> .G1-art { // remove the gap because no artist is displayed
+			grid-gap:0px;
+		}
+		.G1-head, .G1-body { // smaller padding
+			padding: 0.6rem;
+		}
+	}
+}
+
+.G1-card[data-faction="neutral"]         .G1-head {background-color: $nt-header;}
+.G1-card[data-faction="monster"]         .G1-head {background-color: $mo-header;}
+.G1-card[data-faction="nilfgaard"]       .G1-head {background-color: $ng-header;}
+.G1-card[data-faction="northern_realms"] .G1-head {background-color: $nr-header;}
+.G1-card[data-faction="scoiatael"]       .G1-head {background-color: $st-header;}
+.G1-card[data-faction="skellige"]        .G1-head {background-color: $sk-header;}
+.G1-card[data-faction="syndicate"]       .G1-head {background-color: $sy-header;}
+
+.G1-card[data-faction2="neutral"]         .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $nt-header 50%);}
+.G1-card[data-faction2="monster"]         .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $mo-header 50%);}
+.G1-card[data-faction2="nilfgaard"]       .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $ng-header 50%);}
+.G1-card[data-faction2="northern_realms"] .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $nr-header 50%);}
+.G1-card[data-faction2="scoiatael"]       .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $st-header 50%);}
+.G1-card[data-faction2="skellige"]        .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $sk-header 50%);}
+.G1-card[data-faction2="syndicate"]       .G1-head {background-image: linear-gradient(45grad, $sy-header 50%, $sy-header 50%);}

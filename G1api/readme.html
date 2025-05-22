@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="css/test.css">
+    <link rel="stylesheet" type="text/css" href="css/G1card.css">
+
+    <!-- you should never trust remote html content           -->
+    <!-- so let us include DOMPurify to sanitize the response -->
+    <!-- https://github.com/cure53/DOMPurify                  -->
+    <!-- https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page -->
+    <script type="text/javascript" src="js/purify.min.js"></script>
+    <!-- Popper & Tippy -->
+    <script src="https://unpkg.com/@popperjs/core@2"></script>
+    <script src="https://unpkg.com/tippy.js@6"></script>
+    <!-- load G1card after DOMPurify, Popper & Tippy -->
+    <script type="text/javascript" src="js/G1api.js"></script>
+
+    <script type="text/javascript">
+        function toggleMenu(id) {
+            var element = document.getElementById(id);
+            element.classList.toggle("hide");
+        }
+    </script>
+</head>
+<body>
+
+<div id="api-doc">
+
+    <nav>
+        <div>gwent.one API - HTML response</div>
+        <div><a href="https://api.gwent.one"><img src="https://gwent.one/image/favicon/favicon-96x96.png"></a></div>
+    </nav>
+
+    <section id="" class="main split">
+
+        <section class="sub">
+            <div class="header">Hello!</div>
+            <div class="body">
+                <p>This is a demo page to test adjustments to the css and see how it works.
+                    <br>What you see here is similar to gwent.one.</p>
+            </div>
+        </section>
+
+        <section class="sub">
+            <div class="header">Limits</div>
+            <p>While the traffic is unlimited and a 100Mbit connection (France) gwent.one is hosted on a single server.
+                <br>I don't really want to limit anything. For many people this content might already be cached on their
+                end if they are using gwent.one.
+                <br>I am totally fine if you use this to implement individual cards (1, 5, 10, 20, ..) to your website
+                especially as content creators (this is what this has been made for!),
+                but showing multiple cards is mainly in this API to enable quick access to visible gwent cards so you
+                can quickly write and come up with your own ideas of website and apps before worring about game assets
+                or how you display them.
+                <br>Feel free to contact me if you want the assets. The response can use your own domain as a location
+                for the images if you choose to.
+                <br>The API will become more powerful in the future. So keep coming back for more features</p>
+        </section>
+
+    </section>
+
+
+    <section id="opt" class="main hide">
+        <div class="header" onclick="toggleMenu('opt')">Options</div>
+        <div class="body">
+            <p>There are two things different things you can ajust when you include a card. Both will change the
+                response</p>
+        </div>
+        <div class="header">HTML Options</div>
+        <div class="body">
+            <p>HTML options are set using the data-g1html attribute.
+                <br>To make use of multiple options at once you just connect them with dots. <span class="highlight">html=option.option.option.option</span>
+            </p>
+            <ul class="option-grid-3">
+                <li>option</li>
+                <li>default</li>
+                <li>description</li>
+                <li>info</li>
+                <li>enabled</li>
+                <li>removes all of the text</li>
+                <li>art</li>
+                <li>enabled</li>
+                <li>removes the card art</li>
+                <li>keywords</li>
+                <li>enabled</li>
+                <li>disable the keywords</li>
+                <li>flavor</li>
+                <li>enabled</li>
+                <li>disable the flavor text</li>
+                <li>version</li>
+                <li>disabled</li>
+                <li>show the game version '8.4.0', use css content: &quot;Gwent v&quot; for styling</li>
+                <li>linkname</li>
+                <li>disabled</li>
+                <li>name = link to the card on gwent.one</li>
+                <li>linkart</li>
+                <li>disabled</li>
+                <li>art = link to the card on gwent.one</li>
+                <li>dataatr</li>
+                <li>disabled</li>
+                <li>minimal/full data-attributes on .G1-card (full => easier js manipulation)</li>
+            </ul>
+        </div>
+        <div class="header">API Options</div>
+        <div class="body">
+
+            <p>API options are altered in two ways. You can add data-g1class and data-g1version to an element.
+                <br>Since language and host should be set once these are altered in the G1api constructor.</p>
+            <ul class="option-grid-3">
+                <li>option</li>
+                <li>default</li>
+                <li>description</li>
+                <li>class</li>
+                <li>empty</li>
+                <li>adds a class to &lt;div class=&quot;G1-card className&quot;&gt;&lt;/div&gt; to allow inliidual
+                    styling
+                </li>
+                <li>version</li>
+                <li>latest</li>
+                <li>if not specified it will always show the latest version.</li>
+                <li>language</li>
+                <li>en</li>
+                <li>set the language in the constructor</li>
+                <li>host</li>
+                <li>gwent.one</li>
+                <li>set the domain in the constructor</li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="autoload" class="main hide">
+
+        <div class="header" onclick="toggleMenu('autoload')">Auto loading</div>
+
+        <div class="body">
+            <p>To autoload cards add a class name and options as seen below to the class. Then add the element to the
+                load eventlistener.
+                <br>Once an element has been fetched from the api the element will be replaced to prevent nesting.
+                That means these divs will disappear and will be replaced by a .G1-card div. You can wrap them or use
+                &class=className to give them individual styling or behaviour.</p>
+            <div class="code"><pre><code>
+&lt;div <span>class=&quot;<span>G1-load</span>&quot;</span> <span>data-g1id=&quot;<span>200165</span>&quot;</span> <span>data-g1html=&quot;<span>version.linkname.artist</span>&quot;</span> <span>data-g1version=&quot;<span>1.0.0.15</span>&quot;</span>&gt;&lt;/div&gt;
+&lt;div <span>class=&quot;<span>G1-load</span>&quot;</span> <span>data-g1id=&quot;<span>200165</span>&quot;</span> <span>data-g1html=&quot;<span>version.artsize.linkart</span>&quot;</span> <span>data-g1version=&quot;<span>1.1.0</span>&quot;</span> <span>data-g1class=&quot;<span>rounded</span>&quot;</span>&gt;&lt;/div&gt;
+&lt;div <span>class=&quot;<span>G1-load</span>&quot;</span> <span>data-g1id=&quot;<span>200165</span>&quot;</span> <span>data-g1html=&quot;<span>version.flavor</span>&quot;</span>          <span>data-g1version=&quot;<span>4.0.0</span>&quot;</span>&gt;&lt;/div&gt;
+&lt;div <span>class=&quot;<span>G1-load</span>&quot;</span> <span>data-g1id=&quot;<span>200165</span>&quot;</span> <span>data-g1html=&quot;<span>version.artsize.flavor</span>&quot;</span>  <span>data-g1version=&quot;<span>7.2.0</span>&quot;</span>&gt;&lt;/div&gt;
+
+As full GET requests:
+https://api.gwent.one/?key=data&amp;id=201727&amp;response=html&amp;html=version.linkname.artist&amp;version=1.0.0.15
+https://api.gwent.one/?key=data&amp;id=201727&amp;response=html&amp;html=version.artsize.linkart&amp;class=rounded&amp;version=1.1.0
+https://api.gwent.one/?key=data&amp;id=201727&amp;response=html&amp;html=version.flavor&amp;version=4.0.0
+https://api.gwent.one/?key=data&amp;id=201727&amp;response=html&amp;html=version.artsize.flavor&amp;version=7.2.0
+				</code></pre>
+            </div>
+
+            <p>Auto loading with Javascript.</p>
+            <div class="code">
+<pre><code><span>window.addEventListener( <span>'load', () => {
+	api = new G1api();
+	api.listen('.G1-load');
+}</span> )</span>;</code></pre>
+            </div>
+
+
+            <p>Examples wrapped in a simple css grid.</p>
+
+            <div class="grid">
+                <div class="G1-load" data-g1id="200165" data-g1html="version.linkname.artist"
+                     data-g1version="1.0.0.15"></div>
+                <div class="G1-load" data-g1id="200165" data-g1html="version.artsize.linkart" data-g1version="1.1.0"
+                     data-g1class="rounded" data-g1lang="jp"></div>
+                <div class="G1-load" data-g1id="200165" data-g1html="version.flavor" data-g1version="4.0.0"></div>
+                <div class="G1-load" data-g1id="200165" data-g1html="version.artsize.flavor"
+                     data-g1version="7.2.0"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="event" class="main hide">
+
+        <div class="header" onclick="toggleMenu('event')">Manual loading</div>
+        <div class="body">
+            <p>Load cards by adding an event listener to the class.
+                <br>This is a very basic example and could easily be altered to load a different target on a click.
+                <br>The only real requirement is a valid id</p>
+
+            <div class="code">
+<pre><code>&lt;div <span>class=&quot;<span>G1-click</span> btn&quot;</span> <span>data-g1id=&quot;<span>200165</span>&quot;</span> data-g1html=&quot;version.linkname.artist&quot; data-g1version=&quot;1.0.0.15&quot; data-g1class=&quot;rounded&quot;&gt;Click me&lt;/div&gt;
+&lt;div <span>class=&quot;<span>G1-click</span> btn&quot;</span> <span>data-g1id=&quot;<span>200166</span>&quot;</span> data-g1html=&quot;version.linkname.artist&quot; data-g1version=&quot;2.1.0&quot;&gt;Click&lt;/div&gt;
+&lt;div <span>class=&quot;<span>G1-hover</span> btn&quot;</span> <span>data-g1id=&quot;<span>200165</span>&quot;</span> data-g1html=&quot;version.linkname.artist&quot; data-g1version=&quot;1.0.0.15&quot;&gt;Hover me&lt;/div&gt;
+&lt;div <span>class=&quot;<span>G1-hover</span> btn&quot;</span> <span>data-g1id=&quot;<span>200166</span>&quot;</span> data-g1html=&quot;version.linkname.artist&quot; data-g1version=&quot;2.1.0&quot; data-g1class=&quot;rounded&quot;&gt;Hover me&lt;/div&gt;</code></pre>
+            </div>
+
+            <p>Add the elements you want to listen to the eventlistener</p>
+            <div class="code">
+<pre><code><span>window.addEventListener( <span>'load', () => {
+api = new G1api();
+api.listen('.G1-click', 'click');
+api.listen('.G1-hover', 'mouseover');
+}</span> )</span>;</code></pre>
+            </div>
+
+            <div class="grid">
+                <div class="G1-click btn" data-g1id="200165" data-g1html="version.linkname.artist"
+                     data-g1version="1.0.0.15" data-g1class="rounded">Click me
+                </div>
+                <div class="G1-click btn" data-g1id="200166" data-g1html="version.linkname.artist"
+                     data-g1version="2.1.0">Click
+                </div>
+                <div class="G1-hover btn" data-g1id="200165" data-g1html="version.linkname.artist"
+                     data-g1version="1.0.0.15">Hover me
+                </div>
+                <div class="G1-hover btn" data-g1id="200166" data-g1html="version.linkname.artist"
+                     data-g1version="2.1.0" data-g1class="rounded">Hover me
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <section id="tippy" class="main hide">
+
+        <div class="header" onclick="toggleMenu('tippy')">Tippy.js</div>
+        <div class="body">
+            <p>Using Tippy.js to create tooltips in text. Make sure to read the documentation if you want to modify the
+                result. Since these are tooltips we want to have little visual clutter on the screen so setting the
+                behaviour of the tooltip for them globally makes sense. In this case it means there are no keywords and
+                flavor text shown.
+                <br>Check the JS API constructor to set the global variables and tippyCfg()
+            </p>
+
+            <div class="code">
+<pre><code>&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>112113</span>&quot;</span>&gt;Yennefer: Conjurer&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>202542</span>&quot;</span>&gt;Collar&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>132103</span>&quot;</span>&gt;Force of Nature&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>132101</span>&quot;</span>&gt;Draug&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>202276</span>&quot;</span>&gt;Dryad Fledgling&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>152308</span>&quot;</span>&gt;Heymaey Skald&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>202554</span>&quot;</span>&gt;Passiflora&lt;/span&gt;
+&lt;span <span>class=&quot;<span>G1-tooltip</span>&quot;</span> <span>data-g1id=&quot;<span>202384</span>&quot;</span>&gt;Novigradian Justice&lt;/span&gt;</code></pre>
+            </div>
+            <p class="tippy-text">
+                Here are some random cards <span class="G1-tooltip" data-g1id="112113">Yennefer: Conjurer</span> in a
+                text paragraph.
+                CDPR can you please buff <span class="G1-tooltip" data-g1id="202542">Collar</span> and <span
+                    class="G1-tooltip" data-g1id="132103">Force of Nature</span>
+                they don't see play because of the insane combo of <span class="G1-tooltip"
+                                                                         data-g1id="132101">Draug</span>, <span
+                    class="G1-tooltip" data-g1id="202276">Dryad Fledgling</span>, <span class="G1-tooltip"
+                                                                                        data-g1id="152308">Heymaey Skald</span>
+                and <span class="G1-tooltip" data-g1id="202554">Passiflora</span>. Also one of the least played cards is
+                <span class="G1-tooltip" data-g1id="202384">Novigradian Justice</span>. I don't know why you keep
+                nerfing the cards I play.
+            </p>
+        </div>
+
+    </section>
+
+
+    <section id="color_test" class="main hide">
+
+        <div class="header" onclick="toggleMenu('color_test')">Color test</div>
+
+        <div class="body">
+            <p>A quick overview of the faction colors if you choose to modify the .head colors</p>
+            <div class="grid">
+                <div class="G1-load" data-g1id="112113" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="202542" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="132103" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="132101" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="202276" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="152308" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="202554" data-g1option="flavor.keywords"></div>
+                <div class="G1-load" data-g1id="202384" data-g1option="flavor.keywords"></div>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="main split">
+        <section class="sub">
+
+            <div class="header">Changelog</div>
+
+            <div class="body">
+                <p>2021-04-29 - release</p>
+            </div>
+        </section>
+
+        <section class="sub">
+
+            <div class="header">Links to resources</div>
+
+            <div class="body">
+                <p>-
+                    <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Add-ons/WebExtensions/Safely_inserting_external_content_into_a_page">MDN:
+                        Safely inserting external content into a page (developer.mozilla.org)</a>
+                    <br>- <a href="https://github.com/cure53/DOMPurify">DOMPurify (github.com)</a>
+                    <br>- <a href="https://atomiks.github.io/tippyjs/">Tippy.js (github.com)</a>
+                    <br>- <a href="https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass">Live Sass
+                        Compiler (visualstudio.com)</a></p>
+            </div>
+
+        </section>
+    </section>
+    <footer>
+        <div>
+            <span>HTML RESPONSE DEMO v1.0</span>
+        </div>
+    </footer>
+
+</div>
+
+</body>
+</html>

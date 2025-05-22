@@ -1,0 +1,236 @@
+.G1-card {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "G1-info" "G1-art";
+  grid-gap: 20px;
+}
+@media screen and (min-width: 900px) {
+  .G1-card {
+    grid-template-columns: 1fr 249px;
+    grid-template-areas: "G1-info G1-art";
+  }
+}
+.G1-card > .G1-info {
+  grid-area: G1-info;
+}
+.G1-card > .G1-info .G1-head {
+  padding: 1rem;
+  color: #fff;
+}
+.G1-card > .G1-info .G1-name {
+  font-size: 1.2rem;
+}
+.G1-card > .G1-info .G1-name > a {
+  color: #fff;
+}
+.G1-card > .G1-info .G1-category {
+  font-size: 0.8rem;
+}
+.G1-card > .G1-info .G1-body {
+  padding: 1rem;
+  color: #000;
+  background-color: #a18c6c;
+}
+.G1-card > .G1-info span.keyword {
+  color: #600101;
+  font-weight: 800;
+}
+.G1-card > .G1-info .G1-keywords:before {
+  content: " ";
+  display: block;
+  background-color: #89765a;
+  width: 40%;
+  height: 6px;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+.G1-card > .G1-info .G1-flavor {
+  text-align: center;
+  font-style: italic;
+  margin: 0 5%;
+}
+.G1-card > .G1-info .G1-flavor:before {
+  content: " ";
+  display: block;
+  background-color: #8f7c5f;
+  width: 90%;
+  height: 4px;
+  margin: 20px auto;
+  border-radius: 8px;
+}
+.G1-card > .G1-info .G1-foot {
+  text-align: right;
+}
+.G1-card > .G1-info .G1-foot span:before {
+  content: "Gwent v";
+}
+.G1-card > .G1-art {
+  grid-area: G1-art;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas: "G1-cardart" "G1-artist";
+  grid-gap: 5px;
+  align-content: start;
+  justify-content: center;
+  justify-items: center;
+}
+.G1-card > .G1-art .G1-cardart {
+  grid-area: G1-cardart;
+  position: relative;
+}
+.G1-card > .G1-art .G1-cardart > img {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0px;
+}
+.G1-card > .G1-art .G1-cardart[data-res=low] {
+  width: 150px;
+  height: 215px;
+}
+.G1-card > .G1-art .G1-cardart[data-res=low] > img {
+  border-radius: 5px;
+}
+.G1-card > .G1-art .G1-cardart[data-res=low] .ability-icon {
+  width: 150px !important;
+  height: 150px !important;
+}
+.G1-card > .G1-art .G1-cardart[data-res=medium] {
+  width: 249px;
+  height: 357px;
+}
+.G1-card > .G1-art .G1-cardart[data-res=medium] > img {
+  border-radius: 8px;
+}
+.G1-card > .G1-art .G1-cardart[data-res=medium] .ability-icon {
+  width: 249px !important;
+  height: 249px !important;
+}
+.G1-card > .G1-art .G1-deckart {
+  grid-area: G1-cardart;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.G1-card > .G1-art .G1-deckart > img {
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: absolute;
+  top: 0px;
+}
+.G1-card > .G1-art .G1-deckart[data-res=low] {
+  width: calc(525px * 0.5);
+  height: calc(70px * 0.5);
+}
+.G1-card > .G1-art .G1-deckart[data-res=low] > img {
+  border-radius: 5px;
+  width: calc(525px * 0.5);
+  height: calc(70px * 0.5);
+}
+.G1-card > .G1-art .G1-deckart[data-res=medium] {
+  width: 525px;
+  height: 70px;
+}
+.G1-card > .G1-art .G1-deckart[data-res=medium] > img {
+  border-radius: 8px;
+  width: 525px;
+  height: 70px;
+}
+.G1-card > .G1-art .G1-deckart.ability[data-res=low] {
+  width: calc(525px * 0.5) !important;
+  height: calc(116px * 0.5) !important;
+}
+.G1-card > .G1-art .G1-deckart.ability[data-res=low] > img {
+  border-radius: 5px;
+  width: calc(525px * 0.5) !important;
+  height: calc(116px * 0.5) !important;
+}
+.G1-card > .G1-art .G1-deckart.ability[data-res=medium] {
+  width: 525px !important;
+  height: 116px !important;
+}
+.G1-card > .G1-art .G1-deckart.ability[data-res=medium] > img {
+  border-radius: 8px;
+  width: 525px !important;
+  height: 116px !important;
+}
+.G1-card > .G1-art .G1-artist {
+  grid-area: G1-artist;
+}
+.G1-card > .G1-art .G1-artist span:before {
+  content: "Art: ";
+}
+.G1-card.rounded .G1-head {
+  border-radius: 1em 1em 0 0;
+}
+.G1-card.rounded .G1-body {
+  border-radius: 0 0 1em 1em;
+}
+.G1-card.tippy {
+  font-size: 0.8rem !important;
+  grid-template-columns: 249px;
+  grid-template-areas: "G1-art" "G1-info";
+  grid-gap: 5px;
+}
+.G1-card.tippy > .G1-art {
+  grid-gap: 0px;
+}
+.G1-card.tippy .G1-head, .G1-card.tippy .G1-body {
+  padding: 0.6rem;
+}
+
+.G1-card[data-faction=neutral] .G1-head {
+  background-color: #302113;
+}
+
+.G1-card[data-faction=monster] .G1-head {
+  background-color: #4e120a;
+}
+
+.G1-card[data-faction=nilfgaard] .G1-head {
+  background-color: #222222;
+}
+
+.G1-card[data-faction=northern_realms] .G1-head {
+  background-color: #113a68;
+}
+
+.G1-card[data-faction=scoiatael] .G1-head {
+  background-color: #323a1e;
+}
+
+.G1-card[data-faction=skellige] .G1-head {
+  background-color: #33155d;
+}
+
+.G1-card[data-faction=syndicate] .G1-head {
+  background-color: #75390d;
+}
+
+.G1-card[data-faction2=neutral] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #302113 50%);
+}
+
+.G1-card[data-faction2=monster] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #4e120a 50%);
+}
+
+.G1-card[data-faction2=nilfgaard] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #222222 50%);
+}
+
+.G1-card[data-faction2=northern_realms] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #113a68 50%);
+}
+
+.G1-card[data-faction2=scoiatael] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #323a1e 50%);
+}
+
+.G1-card[data-faction2=skellige] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #33155d 50%);
+}
+
+.G1-card[data-faction2=syndicate] .G1-head {
+  background-image: linear-gradient(45grad, #75390d 50%, #75390d 50%);
+}/*# sourceMappingURL=G1card.css.map */
