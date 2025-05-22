@@ -335,7 +335,7 @@ const cityName = document.querySelector('.city')
 const cityTemp = document.querySelector('.temp')
 
 const API_KEY = 'e417df62e04d3b1b111abeab19cea714'
-const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
+const BASE_URL = 'https://api.openweathermap.org/data/2.5/weather'
 
 searchButton.onclick = async () => {
     try {
