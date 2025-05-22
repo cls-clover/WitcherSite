@@ -9,7 +9,7 @@
     width: 100%;
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 100;
 }
 
 .inner_header {
@@ -192,6 +192,7 @@
     padding: 100px 0;
     background-image: url("../img/witcher_night_landscape.png");
     background-repeat: no-repeat;
+    box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.1);
 }
 
 .inner_block_video {

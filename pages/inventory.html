@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Inventory</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/core.css">
+  <link rel="stylesheet" href="../css/inventory.css">
+  <link rel="icon" type="image/x-icon" href="../favicon.ico">
+
+</head>
+<body>
+<div class="wrapper">
+  <div class="header">
+    <div class="container">
+      <div class="inner_header">
+        <a href="../index.html">
+          <div class="logotype">
+            <img src="../img/logo.webp" alt="logo">
+          </div>
+        </a>
+        <ul class="menu">
+          <li class="menu_link">
+            <a href="../pages/home_works.html">Dimension</a>
+          </li>
+          <li class="menu_link">
+            <a href="../pages/lessons.html">Activity</a>
+          </li>
+          <li class="menu_link">
+            <a href="../pages/inventory.html">Inventory</a>
+          </li>
+          <li class="menu_link">
+            <a href="../pages/gwent.html">Gwent</a>
+          </li>
+        </ul>
+        <button class="btn" id="btn-get">JOIN</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="inventory">
+    <div class="container">
+      <h3>CHOSE YOUR ARMOR SCHOOL</h3>
+      <div class="inventory_inner">
+        <div class="inventory_form">
+          <button id="geralt_manticore">
+            <img src="../img/manticore_med.webp" alt="manticore_med">
+          </button>
+          <button id="geralt_wolf">
+            <img src="../img/wolf_med.webp" alt="wolf_med">
+          </button>
+          <button id="geralt_griffin">
+            <img src="../img/griffin_med.webp" alt="grif_med">
+          </button>
+          <button id="geralt_felline">
+            <img src="../img/cat_med.webp" alt="cat_med">
+          </button>
+          <button id="geralt_bear">
+            <img src="../img/bear_med.webp" alt="bear_med">
+          </button>
+        </div>
+
+        <div class="nude-img"><img id="geralt_image" src="../img/geralt_nude.png" alt="geralt_nude"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal">
+  <div class="modal_dialog">
+    <div class="modal_content">
+      <form action="#">
+        <div class="modal_close">&#10006;</div>
+        <div class="modal_title">Begin the Witcher</div>
+        <label>
+          <input required placeholder="Ваше имя" name="name" type="text" class="modal_input">
+        </label>
+        <label>
+          <input required placeholder="Ваш номер телефона" name="phone" class="modal_input">
+        </label>
+        <button class="btn btn_dark btn_min">JOIN</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+<script src="../js/inventory.js"></script>
+<script src="../js/modal.js"></script>
+</html>

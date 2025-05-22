@@ -1,6 +1,3 @@
-
-/* TAB SLIDER */
-
 .tab_slider {
     padding: 100px 0;
 }
@@ -16,6 +13,8 @@
     flex-direction: column;
     justify-content: center;
     height: 170px;
+    box-shadow: 0 0 10px 5px rgba(233, 209, 156, 0.2);
+
 }
 
 .tab_content_block p {
@@ -40,7 +39,11 @@
     font-size: 20px;
     cursor: pointer;
     display: grid;
+    border-radius: 10px;
     place-content: center;
+    box-shadow: 0 0 10px 2px rgba(233, 209, 156, 0.2);
+
+
 }
 
 .tab_content_item_active {
@@ -59,10 +62,12 @@
 
 
 
-/*------WEATHER------*/
+
 
 .weather {
     padding: 100px 0;
+    background-image: url(../img/witcher_night_landscape.png);
+    background-repeat: no-repeat;
 }
 
 .inner_weather > div {
@@ -85,7 +90,7 @@ hr {
     width: 100%;
 }
 
-/*-------STOP WATCH------ */
+
 
 .time {
     color: white;
@@ -117,58 +122,70 @@ hr {
     justify-content: space-between;
 }
 
-/* MOVE BLOCK */
 
-.move_block {
-    padding: 100px 0;
+.body_game {
+    background-image: url("../img/tyssent_forest.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    color: #e2e8f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    box-shadow: 0 0 10px 2px rgba(233, 209, 156, 0.4);
 }
 
-.inner_parent_block {
-    height: 400px;
-    width: 400px;
-    border: 1px solid var(--orange);
-    border-radius: 18px;
+.main-game-wrapper {
+    backdrop-filter: blur(4px);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 0 10px 1px rgba(233, 209, 156, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 95%;
+    max-width: 800px;
+    margin: 1rem;
 }
 
-.parent_block {
-    height: 500px;
-    width: 700px;
-    border: 1px solid var(--orange);
-    position: relative;
-    margin: 0 auto;
+canvas {
+    background-color: transparent;
+    border-radius: 0.5rem;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 60vh;
+    margin-top: 1rem;
 }
 
-.child_block {
-    position: absolute;
-    top: 0;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    animation: lol 7s linear infinite;
-    /*background: linear-gradient(to bottom left, violet 0%, transparent 100%) ;*/
-    background: url("../img/bubble.png") no-repeat;
-    background-size: contain;
+.game-info {
+    margin-top: 1rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #a0aec0;
 }
 
-@keyframes lol {
-    0% {
-        transform: rotate(0deg) scale(0.9);
-    }
-    25% {
-        transform: rotate(90deg) scale(1.1);
-    }
-    50% {
-        transform: rotate(180deg) scale(0.9);
-    }
-    75% {
-        transform: rotate(270deg) scale(1.1);
-    }
-    100% {
-        transform: rotate(360deg) scale(0.9);
-        filter: hue-rotate(360deg);
-    }
+.instructions {
+    margin-top: 1rem;
+    font-size: 18px;
+    color: #cbd5e0;
+    text-align: center;
 }
 
-.inner_move_block {
-    margin-top: 50px;
+.catch-message {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #68d391;
+    display: none;
+    animation: fadeOut 1.5s forwards;
 }
+
+
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
+}
+

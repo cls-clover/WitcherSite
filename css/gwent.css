@@ -1,0 +1,100 @@
+.gwent-title {
+    margin-top: 10px;
+}
+
+.cards {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.faction-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.G1-card-art-only {
+    width: 150px;
+    height: 215px;
+    cursor: pointer;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.G1-card-art-only .G1-cardart {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.G1-card-art-only .G1-cardart img {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 0;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(1) {
+    z-index: 1;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(2) {
+    z-index: 2;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(3) {
+    z-index: 3;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(4) {
+    z-index: 4;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(5) {
+    z-index: 5;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(6) {
+    z-index: 6;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(7) {
+    z-index: 7;
+}
+
+.G1-card-art-only .G1-cardart img:nth-child(8) {
+    z-index: 8;
+}
+
+
+.tippy-box[data-theme~='G1'] {
+    background-color: #a18c6c;
+    color: #000;
+    border-radius: 8px;
+    padding: 1rem;
+    font-size: 0.9rem;
+}
+
+.tippy-box[data-theme~='G1'] h4 {
+    color: #fff;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.tippy-box[data-theme~='G1'] .keyword {
+    color: #600101;
+    font-weight: 800;
+}
+
+.tippy-box[data-theme~='G1'] i {
+    font-style: italic;
+}
