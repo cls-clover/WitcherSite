@@ -47,3 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         descriptionContainer.textContent = armorDescriptions['geralt_manticore'];
     }
 });
+
+
+
+

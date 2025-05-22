@@ -16,7 +16,6 @@ checkButton.onclick = () => {
         emailResult.style.color = '#1ac012';
     } else {
         emailResult.innerHTML = `<div style="text-align: center">Вы не выдержали испытание <br/>травами и умерли.</div>`;
-        ;
         emailResult.style.color = '#f32424';
     }
 }

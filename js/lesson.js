@@ -328,3 +328,35 @@ window.addEventListener('resize', () => {
 });
 
 
+//WEATHER
+const searchInput = document.querySelector('.cityName')
+const searchButton = document.querySelector('#search')
+const cityName = document.querySelector('.city')
+const cityTemp = document.querySelector('.temp')
+
+const API_KEY = 'e417df62e04d3b1b111abeab19cea714'
+const BASE_URL = 'http://api.openweathermap.org/data/2.5/weather'
+
+searchButton.onclick = async () => {
+    try {
+        if (searchInput.value !== ''){
+            const response = await fetch(`${BASE_URL}?appid=${API_KEY}&q=${searchInput.value}&units=metric&lang=ru`)
+            const data = await response.json()
+            if (data.cod === '404'){
+                cityName.innerHTML = 'Город не найден'
+            }else {
+                cityName.innerHTML = data.name
+                cityTemp.innerHTML = Math.round(data.main.temp) + '°C'
+            }
+            searchInput.value = ''
+
+        }else {
+            cityName.innerHTML = 'Введите название города'
+            cityTemp.innerHTML = ''
+        }
+    }catch (e){
+        console.error('Error')
+    }
+
+}
+
