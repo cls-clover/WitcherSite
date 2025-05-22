@@ -8,12 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const geraltImage = document.querySelector('#geralt_image');
-    const descriptionContainer = document.createElement('p'); // Создаем контейнер для описания
-    descriptionContainer.style.marginTop = '20px'; // Добавляем отступ сверху
-    descriptionContainer.style.color = '#ccc'; // Задаем цвет текста
+    const descriptionContainer = document.createElement('p');
+    descriptionContainer.style.marginTop = '20px';
+    descriptionContainer.style.color = '#ccc';
 
     const inventoryContainer = document.querySelector('.inventory .container');
-    inventoryContainer.appendChild(descriptionContainer); // Добавляем контейнер описания в DOM
+    inventoryContainer.appendChild(descriptionContainer);
 
     const armorImages = {
         geralt_manticore: '../img/geralt_manticore.png',
@@ -36,13 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
             armorButtons[armor].addEventListener('click', () => {
                 if (geraltImage && armorImages[armor] && descriptionContainer && armorDescriptions[armor]) {
                     geraltImage.src = armorImages[armor];
-                    descriptionContainer.textContent = armorDescriptions[armor]; // Обновляем описание
+                    descriptionContainer.textContent = armorDescriptions[armor];
                 }
             });
         }
     }
 
-    // Изначально показываем описание для первой брони (Мантикоры)
     if (descriptionContainer && armorDescriptions['geralt_manticore']) {
         descriptionContainer.textContent = armorDescriptions['geralt_manticore'];
     }

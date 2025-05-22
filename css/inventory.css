@@ -1,12 +1,12 @@
 .inventory {
-    margin-top: 100px; /* Отступ сверху */
-    text-align: center; /* Выравнивание текста по центру */
+    margin-top: 100px;
+    text-align: center;
 }
 
 .inventory .container {
-    max-width: 800px; /* Максимальная ширина контейнера */
-    margin: 0 auto; /* Центрирование контейнера */
-    padding: 20px; /* Внутренние отступы */
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
 }
 
 .inventory_form {
@@ -16,40 +16,40 @@
 }
 
 .inventory h3 {
-    margin-bottom: 20px; /* Отступ под заголовком */
-    color: #f0e68c; /* Золотистый цвет текста (как в Ведьмаке) */
+    margin-bottom: 20px;
+    color: #f0e68c;
 }
 
-.inventory > div > div { /* Контейнер для кнопок и изображения Геральта */
+.inventory > div > div {
     display: flex;
-    align-items: center; /* Выравнивание по вертикали */
-    justify-content: space-around; /* Выравнивание по горизонтали */
-    gap: 20px; /* Расстояние между кнопками и изображением */
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
 }
 
 .inventory button {
-    background: none; /* Убираем фон кнопки */
-    border: none; /* Убираем рамку кнопки */
-    cursor: pointer; /* Курсор при наведении */
-    padding: 0; /* Убираем внутренние отступы кнопки */
-    outline: none; /* Убираем обводку при фокусе */
-    transition: transform 0.2s ease-in-out; /* Плавная анимация при наведении */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    outline: none;
+    transition: transform 0.2s ease-in-out;
 }
 
 .inventory button:hover {
-    transform: scale(1.1); /* Небольшое увеличение при наведении */
+    transform: scale(1.1);
 }
 
 .inventory button img {
-    width: 80px; /* Размер медальонов брони */
+    width: 80px;
     height: 80px;
-    border-radius: 50%; /* Круглая форма медальонов */
-    border: 2px solid #555; /* Рамка медальонов */
+    border-radius: 50%;
+    border: 2px solid #555;
 }
 
-.inventory > div > div > img { /* Изображение Геральта */
-    width: auto; /* Автоматическая ширина */
-    max-height: 400px; /* Максимальная высота изображения Геральта */
+.inventory > div > div > img {
+    width: auto;
+    max-height: 400px;
 }
 
 .nude-img {
